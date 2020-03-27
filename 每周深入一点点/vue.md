@@ -38,6 +38,12 @@ vue对数组放弃采用object.defineProperty，出于对性能和收益的权�
 >- diff新老两棵虚拟DOM树的差异
 >- 每点差异都要及时patch到真实dom上  
 
+>虚拟DOM有效的降低大面积（真实DOM节点）的重排和排版，因为最终与真实DOM比较差异，可以只渲染局部。
+
+>Vue 之所以引入了 Virtual DOM，更重要的原因是为了解耦 HTML 依赖，这带来两个非常重要的好处是：
+>- 不再依赖 HTML 解析器进行模版解析，可以进行更多的 AOT 工作提高运行时效率：通过模版 AOT 编译，Vue 的运行时体积可以进一步压缩，运行时效率可以进一步提升；
+>- 可以渲染到 DOM 以外的平台，实现 SSR、同构渲染这些高级特性，Weex 等框架应用的就是这一特性。
+
 1. VNode模拟dom树 ![](imgs/Vnode@vue.jpg)
 2. diff算法（就地修改） ![](imgs/diff算法/diff_patch@vue.jpg)
    - 同层级比较，并不需要递归![](imgs/diff算法/diff@vue.jpg)
