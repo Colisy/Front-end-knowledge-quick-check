@@ -65,7 +65,7 @@ vue对数组放弃采用object.defineProperty，出于对性能和收益的权�
 ![](./imgs/diff算法/diff_example_5.jpg)
 
 ## 组件通信
-- 父组件自定义事件传给子组件，子组件emit触发自定义事件，以参数形式将值传给父组件
+- 父组件自定义事件传给子组件（非props接收），子组件emit触发自定义事件，以参数形式将值传给父组件
 - v-model其实是props,emit的语法糖
   v-model原理
 `<input :value="msg” @input="msg=$event.target.value" />`
