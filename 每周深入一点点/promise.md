@@ -6,6 +6,7 @@ then在promise有结果后才进入微任务
 **定时器**是新的宏任务，执行完一个宏任务，再执行第二个，宏任务执行完毕再执行此次宏任务中的微任务
 可以理解为await后面的内容就相当于放到了Promise.then的里面
 如果不是Promise对象的话，就会直接返回对应的值，相当于Promise.resolve()
+优先级process.nextTick 高于 Promise
 
 - Promise.all
 接收一组异步任务，然后并行执行异步任务，并且在**所有异步操作执行完**后才执行回调。
