@@ -1,5 +1,60 @@
 # css
-- rem
+#### html5
+###### 根元素
+Element | Description 
+----|------
+html | 所有元素必须是这个元素的子节点  
+###### 文档元数据
+Element | Description 
+----|------
+meta | `<meta name="参数" content="具体描述信息">`<br>`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+
+屏幕分辨率的宽：window.screen.width
+网页可见区域宽：document.body.clientWidth/document.body.offsetWidth
+###### 脚本
+Element | Description 
+----|------
+template(h5)|通过 js 在运行时实例化内容的容器。
+###### 章节
+Element | Description 
+----|------
+section|文档中的一个章节
+nav|导航
+header|常包含 logo、页面标题、章节标题和导航
+footer|常包含版权信息、法律信息链接和反馈建议用的地址
+main|主要内容
+figure|图例
+figcaption|图例说明
+###### 嵌入内容
+Element | Description 
+----|------
+video|视频
+audio|音频
+canvas|图表
+svg|矢量图
+
+#### 盒子模型
+- ie怪异盒子：宽度 = 内容宽度width（content+border+padding）+ margin
+- 标准盒子：宽度 = 内容的宽度width（content）+ border + padding + margin
+- box-sizing属性控制元素的盒子模型，默认标准盒子，border-box怪异盒子
+#### 隐藏
+- display：none 不显示对应的元素，在文档布局中不再分配空间（回流+重绘）
+- visibility：hidden 隐藏对应元素，在文档布局中仍保留原来的空间（重绘）
+#### BFC
+- 浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为"visiable"的块级盒子，都会为他们的内容创建新的BFC（Block Fromatting Context， 即块级格式上下文）。
+- BFC渲染规则
+  1. BFC是一个独立的容器，外面的元素不会影响里面的元素
+  2. 计算BFC高度的时候浮动元素也会参与计算
+- 应用
+  1. 防止浮动导致父元素高度塌陷
+  2. 避免外边距折叠
+#### 伪元素和伪类
+- 单冒号(:)用于CSS3伪类，双冒号(::)用于CSS3伪元素。
+- 伪类：nth-child(n)/hover
+- 伪元素：before/selection
+- 
+[css参考](https://www.itcodemonkey.com/article/2853.html)
+#### rem
   相对于根元素`<html>`的字体大小的单位
 #### flex
 - 容器属性
