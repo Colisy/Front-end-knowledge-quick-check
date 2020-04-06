@@ -120,21 +120,55 @@ destroyed和mounted一样都是先子再父
 Vue 组件销毁时，会自动解绑它的全部指令及事件监听器，但是仅限于组件本身的事件。
 beforeDestroy() { clearInterval(this.timer) }清除定时器
 
+## 路由
+- 前端路由
+  >在SPA中，只有一个 HTML 页面，为了用户交互时不刷新和跳转页面，每个视图展示形式匹配一个特殊的 url，有了前端路由的需求。
+- hash模式实现依据
+  1. hash 值的变化不会导致浏览器像服务器发送请求
+  2. location.hash可以获取hash值
+  3. hashchange是hash值发生改变的调用的函数
+- history模式实现依据
+  1. history 接口允许操作浏览器的访问的会话历史记录.pushState 和 replaceState，通过这两个 API 可以改变 url 地址且不会发送请求。
+  2. 当用户刷新页面之类的操作时，浏览器还是会给服务器发送请求。为了避免出现这种情况，需要服务器的支持，需要把所有路由都重定向到根页面。
+- vue-router传值
+  1. 动态路由 /:id route.param 
+  2. 拼路由地址 ?xx=xx route.query
+- 路由守卫
+  
 ## 由面试题引发的思考
 #### MVVM
   >Mvvm 软件架构设计模式，包含多种设计模式。
   Model代表数据模型负责业务逻辑和数据封装，View代表UI组件负责界面和显示，ViewModel监听模型数据的改变和控制视图行为，处理用户交互，简单来说就是通过双向数据绑定把View层和Model层连接起来。在MVVM架构下，View和Model没有直接联系，而是通过ViewModel进行交互，我们只关注业务逻辑，不需要手动操作DOM，不需要关注View和Model的同步工作。
 #### 组件中的data为什么是函数
   >组件是构造函数，注册组件是创建实例对象，data是函数，每个实例可以维护一份被返回对象的独立的拷贝
-#### 动态组件&keep-alive
+#### keep-alive
+  - keepalive是一个抽象的组件，缓存的组件不会被 mounted,为此提供activated和deactivated钩子函数
+  - 3个属性,include/exclude/max,先匹配被包含组件的 name 字段，如果 name 不可用，则匹配当前组件 components 配置中的注册名称。
+  - 与动态组件结合
+    ```
+    <!-- 失活的组件将会被缓存！-->
+    <keep-alive>
+      <component v-bind:is="currentTabComponent"></component>
+    </keep-alive>
+    ```
+  - 与vue-router结合
+    ```
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
+
+    ```
+#### 异步组件
+  - import
   
-  `<component v-bind:is="currentTabComponent"></component>`
-  ```
-  <!-- 失活的组件将会被缓存！-->
-  <keep-alive>
-    <component v-bind:is="currentTabComponent"></component>
-  </keep-alive>
-  ```
+    `() => import('./my-async-component')` 
+
+     这个 `import` 函数会返回一个 `Promise` 对象。
+  - webpack代码分割
+  
+    `require(['./my-async-component'], resolve)`
+  
 #### vue为什么异步渲染  
   >Vue的变化侦测机制决定了它必然会在每次状态发生变化时都会发出渲染的信号，但Vue会在收到信号之后检查队列中是否已经存在这个任务，保证队列中不会有重复。如果队列中不存在则将渲染操作添加到队列中。
   <br>
@@ -147,7 +181,10 @@ beforeDestroy() { clearInterval(this.timer) }清除定时器
 #### nextTick
   1. 原因：Vue DOM更新是异步执行的，即修改数据时，视图不会立即更新。为了确保拿到更新后的DOM，设置了nextTick。
   2. 原理：nextTick接受一个回调函数时，传入的回调函数会在callbacks中存起来，在flushCallbacks函数中遍历执行callbacks，flushCallbacks放到微任务或宏任务中延迟执行。根据当前环境判断使用哪种方式实现，优先级 Promise.then > MutationObserver(微任务) > setImmediate（node中宏任务） > setTimeout(fn, 0)
-
+#### 指令
+  1. v-html : 样式事件会失效
+  2. v-if / v-show : v-show是dom树上有内容，不显示，display：none；v-if是dom树上无内容。v-show在初始渲染时有更高的开销，但是切换开销很小，更适合频繁切换的场景，v-if反之
+  3. v-if & v-for : 不要同时使用在一个标签上，v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中
 
 
 
@@ -156,19 +193,10 @@ beforeDestroy() { clearInterval(this.timer) }清除定时器
 
 
 ![](./imgs/2020面试题@vue.jpg)
+
+
+watcher何时建立，怎么更新
 $extend
-
-$nextTick 
-
-nextTick可以使我们在下次DOM更新循环结束之后执行延迟回调，用于获得更新后的DOM
-
-Keep-alive 组件缓存
-
-
-
-v-show在初始渲染时有更高的开销，但是切换开销很小，更适合频繁切换的场景，v-if反之
-Vue-router动态路由 传值通过/:id route.param ?xx=xx route.query
 事件修饰符 stop阻止冒泡事件 prevent阻止默认事件 once一次渲染 静态信息避免重复渲染
-自定义事件 sync native
 用vue.extend做全局提示组件
-单页面应用SPA的核心之一是：更新视图而不重新请求页面
+
