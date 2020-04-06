@@ -65,21 +65,96 @@ vue对数组放弃采用object.defineProperty，出于对性能和收益的权�
 ![](./imgs/diff算法/diff_example_5.jpg)
 
 ## 组件通信
-- 父组件自定义事件传给子组件（非props接收），子组件emit触发自定义事件，以参数形式将值传给父组件
+- props
+  父传子
+- emit
+  子传父，父组件自定义事件传给子组件（非props接收），子组件emit触发自定义事件，以参数形式将值传给父组件
 - v-model其实是props,emit的语法糖
   v-model原理
 `<input :value="msg” @input="msg=$event.target.value" />`
 - .sync语法糖
+- $ref
+  调用子组件的方法，传参
+- provide & inject 
+  主要为高阶插件/组件库提供用例
+- 插槽
+  父向子传递标签
 - vuex
 ![](./imgs/vuex@vue.png)
 ## 生命周期
+![](imgs/生命周期@vue.png)
 
+#### 创建阶段
+- beforeCreate: 实例、组件通过new Vue() 创建出来之后会初始化事件和生命周期，然后才会执行beforeCreate钩子函数.
+  
+  这个时候，数据data还没有挂载到vm对象，无法访问到数据data和真实的dom挂载元素el
+- created: 挂载数据data，绑定事件等等，然后才会执行created钩子函数.
+  
+  这个时候,已可使用到数据data，也可更改数据data，在这里更改数据不会触发updated钩子函数，一般可以在这里做初始数据的获取。注意：此时挂件元素el还不存在
+- beforeMount: 首先会判断对象是否有挂载元素el选项。如果有的话就继续向下编译，如果没有el选项，则停止编译，也就意味着停止了生命周期，直到在该vue实例上手动挂载，即调用vm.$mount(el)。
+  
+  编译模板为虚拟dom放入到render函数中准备渲染，然后执行beforeMount钩子函数，
+  
+  在这里也可以更改数据，不会触发updated
+- mounted: render后，渲染出真实dom，然后执行mounted钩子函数
+  
+  组件已经出现在页面中，数据、真实dom都已经处理好了,事件都已经挂载好了，可以在这里操作真实dom
+#### 运行阶段  
+- beforeUpdate: data更改之后，会立即执行beforeUpdate
+- updated: 数据已经更改完成，dom也重新render完成
+- beforeDestroy: 调用$destroy方法后，在实例销毁之前 立即执行beforeDestroy
+
+  实例仍然完全可用,一般在这里做一些善后工作，例如清除计时器
+- destroyed: 组件的数据绑定、监听...去掉，执行 destroyed钩子函数
+
+  Vue 实例指示的所有东西都会解除绑定，所有的事件监听器会被移除，所有的子实例也会被销毁
+
+#### 父子组件生命周期顺序
+从外到内，然后再从内到外
+
+destroyed和mounted一样都是先子再父
+
+![](imgs/父子组件生命周期顺序@vue.png)
 ## vue性能优化
 大数据长列表，可采用虚拟滚动，只渲染少部分区域的内容
 Vue 组件销毁时，会自动解绑它的全部指令及事件监听器，但是仅限于组件本身的事件。
 beforeDestroy() { clearInterval(this.timer) }清除定时器
 
 ## 由面试题引发的思考
+#### MVVM
+  >Mvvm 软件架构设计模式，包含多种设计模式。
+  Model代表数据模型负责业务逻辑和数据封装，View代表UI组件负责界面和显示，ViewModel监听模型数据的改变和控制视图行为，处理用户交互，简单来说就是通过双向数据绑定把View层和Model层连接起来。在MVVM架构下，View和Model没有直接联系，而是通过ViewModel进行交互，我们只关注业务逻辑，不需要手动操作DOM，不需要关注View和Model的同步工作。
+#### 组件中的data为什么是函数
+  >组件是构造函数，注册组件是创建实例对象，data是函数，每个实例可以维护一份被返回对象的独立的拷贝
+#### 动态组件&keep-alive
+  
+  `<component v-bind:is="currentTabComponent"></component>`
+  ```
+  <!-- 失活的组件将会被缓存！-->
+  <keep-alive>
+    <component v-bind:is="currentTabComponent"></component>
+  </keep-alive>
+  ```
+#### vue为什么异步渲染  
+  >Vue的变化侦测机制决定了它必然会在每次状态发生变化时都会发出渲染的信号，但Vue会在收到信号之后检查队列中是否已经存在这个任务，保证队列中不会有重复。如果队列中不存在则将渲染操作添加到队列中。
+  <br>
+  <br>
+  之后通过异步的方式延迟执行队列中的所有渲染的操作并清空队列，当同一轮事件循环中反复修改状态时，并不会反复向队列中添加相同的渲染操作。
+  <br>
+  <br>
+  所以我们在使用Vue时，修改状态后更新DOM都是异步的。
+
+#### nextTick
+  1. 原因：Vue DOM更新是异步执行的，即修改数据时，视图不会立即更新。为了确保拿到更新后的DOM，设置了nextTick。
+  2. 原理：nextTick接受一个回调函数时，传入的回调函数会在callbacks中存起来，在flushCallbacks函数中遍历执行callbacks，flushCallbacks放到微任务或宏任务中延迟执行。根据当前环境判断使用哪种方式实现，优先级 Promise.then > MutationObserver(微任务) > setImmediate（node中宏任务） > setTimeout(fn, 0)
+
+
+
+
+
+
+
+
 ![](./imgs/2020面试题@vue.jpg)
 $extend
 
@@ -90,8 +165,7 @@ nextTick可以使我们在下次DOM更新循环结束之后执行延迟回调，
 Keep-alive 组件缓存
 
 
-Mvvm 软件架构设计模式，包含多种设计模式
-Model代表数据模型负责业务逻辑和数据封装，View代表UI组件负责界面和显示，ViewModel监听模型数据的改变和控制视图行为，处理用户交互，简单来说就是通过双向数据绑定把View层和Model层连接起来。在MVVM架构下，View和Model没有直接联系，而是通过ViewModel进行交互，我们只关注业务逻辑，不需要手动操作DOM，不需要关注View和Model的同步工作。
+
 v-show在初始渲染时有更高的开销，但是切换开销很小，更适合频繁切换的场景，v-if反之
 Vue-router动态路由 传值通过/:id route.param ?xx=xx route.query
 事件修饰符 stop阻止冒泡事件 prevent阻止默认事件 once一次渲染 静态信息避免重复渲染
