@@ -134,7 +134,21 @@ beforeDestroy() { clearInterval(this.timer) }清除定时器
   1. 动态路由 /:id route.param 
   2. 拼路由地址 ?xx=xx route.query
 - 路由守卫
-  
+  1. 在失活的组件里调用离开守卫 beforeRouteLeave
+  2. 全局前置守卫 beforeEach
+  3. 路由配置里调用 beforeEnter
+  4. 解析异步路由组件。
+  5. 被激活的组件里调用 beforeRouteEnter
+   
+     组件实例还没被创建，不能获取组件实例 `this`
+
+     可以通过传一个回调给 next来访问组件实例
+
+  6. 全局解析守卫 beforeResolve 
+  7. 导航被确认。
+  8. 全局后置钩子 afterEach
+  9. 触发 DOM 更新。
+  10. 用创建好的实例调用 beforeRouteEnter 守卫中传给 next 的回调函数。
 ## 由面试题引发的思考
 #### MVVM
   >Mvvm 软件架构设计模式，包含多种设计模式。
@@ -185,18 +199,17 @@ beforeDestroy() { clearInterval(this.timer) }清除定时器
   1. v-html : 样式事件会失效
   2. v-if / v-show : v-show是dom树上有内容，不显示，display：none；v-if是dom树上无内容。v-show在初始渲染时有更高的开销，但是切换开销很小，更适合频繁切换的场景，v-if反之
   3. v-if & v-for : 不要同时使用在一个标签上，v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中
+#### 修饰符
+  事件修饰符 
+  - stop阻止冒泡事件 
+  - prevent阻止默认事件 
+  - once一次渲染 静态信息避免重复渲染
+#### $extend/$mount
+  创建构造器挂载到页面
+
+  实现全局提示组件
+
+![](./imgs/2020面试题@vue.jpg)  
 
 
-
-
-
-
-
-![](./imgs/2020面试题@vue.jpg)
-
-
-watcher何时建立，怎么更新
-$extend
-事件修饰符 stop阻止冒泡事件 prevent阻止默认事件 once一次渲染 静态信息避免重复渲染
-用vue.extend做全局提示组件
 
