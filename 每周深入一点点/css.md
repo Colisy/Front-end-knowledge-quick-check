@@ -52,8 +52,7 @@ svg|矢量图
 - 单冒号(:)用于CSS3伪类，双冒号(::)用于CSS3伪元素。
 - 伪类：nth-child(n)/hover
 - 伪元素：before/selection
-- 
-[css参考](https://www.itcodemonkey.com/article/2853.html)
+- [css参考](https://www.itcodemonkey.com/article/2853.html)
 #### rem
   相对于根元素`<html>`的字体大小的单位
 #### flex
@@ -71,7 +70,7 @@ svg|矢量图
   align-self
 #### 布局
 - 上中下
-  1. position
+  1. float + position
 ```
 <style type="text/css">
   .layout.absolute div{
