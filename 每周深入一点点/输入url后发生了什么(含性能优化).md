@@ -106,6 +106,7 @@ Host头处理：同一台机器上，可能部署多个app，通过解析host+�
    - Expires：有过期时间的是持久性cookie存在硬盘中，浏览器关闭不消失，反之是会话性cookie
    - Domain：一般设置成二级域名，这样子域名可以共享
    - SameSite：之前默认是 None（无论是否跨站都会发送 Cookie） 的，Chrome80 后默认是 Lax （允许部分第三方请求携带 Cookie）。
+   - HttpOnly：禁止用户通过 JavaScript 操作 cookie，防止窃取cookie
 ## 性能优化
 #### http方面
 >减少请求次数

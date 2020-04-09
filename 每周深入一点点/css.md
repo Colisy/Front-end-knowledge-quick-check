@@ -134,3 +134,7 @@ svg|矢量图
   <div class="bottom"></div>
 </article> 
 ```
+#### 省略号
+- overflow: hidden；（文字长度超出限定宽度，则隐藏超出的内容）
+- white-space: nowrap；（设置文字在一行显示，不能换行）
+- text-overflow: ellipsis；（规定当文本溢出时，显示省略符号来代表被修剪的文本）
