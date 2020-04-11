@@ -88,15 +88,15 @@ vue对数组放弃采用object.defineProperty，出于对性能和收益的权�
 - beforeCreate: 实例、组件通过new Vue() 创建出来之后会初始化事件和生命周期，然后才会执行beforeCreate钩子函数.
   
   这个时候，数据data还没有挂载到vm对象，无法访问到数据data和真实的dom挂载元素el
-- created: 挂载数据data，绑定事件等等，然后才会执行created钩子函数.
+- created: **挂载数据data**，绑定事件等等，然后才会执行created钩子函数.
   
   这个时候,已可使用到数据data，也可更改数据data，在这里更改数据不会触发updated钩子函数，一般可以在这里做初始数据的获取。注意：此时挂件元素el还不存在
-- beforeMount: 首先会判断对象是否有挂载元素el选项。如果有的话就继续向下编译，如果没有el选项，则停止编译，也就意味着停止了生命周期，直到在该vue实例上手动挂载，即调用vm.$mount(el)。
+- beforeMount: 首先会**判断对象是否有挂载元素el选项**。如果有的话就继续向下编译，如果没有el选项，则停止编译，也就意味着停止了生命周期，直到在该vue实例上手动挂载，即调用vm.$mount(el)。
   
   编译模板为虚拟dom放入到render函数中准备渲染，然后执行beforeMount钩子函数，
   
   在这里也可以更改数据，不会触发updated
-- mounted: render后，渲染出真实dom，然后执行mounted钩子函数
+- mounted: render后，渲染出**真实dom**，然后执行mounted钩子函数
   
   组件已经出现在页面中，数据、真实dom都已经处理好了,事件都已经挂载好了，可以在这里操作真实dom
 #### 运行阶段  
