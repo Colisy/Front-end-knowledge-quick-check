@@ -120,35 +120,6 @@ destroyed和mounted一样都是先子再父
 Vue 组件销毁时，会自动解绑它的全部指令及事件监听器，但是仅限于组件本身的事件。
 beforeDestroy() { clearInterval(this.timer) }清除定时器
 
-## 路由
-- 前端路由
-  >在SPA中，只有一个 HTML 页面，为了用户交互时不刷新和跳转页面，每个视图展示形式匹配一个特殊的 url，有了前端路由的需求。
-- hash模式实现依据
-  1. hash 值的变化不会导致浏览器像服务器发送请求
-  2. location.hash可以获取hash值
-  3. hashchange是hash值发生改变的调用的函数
-- history模式实现依据
-  1. history 接口允许操作浏览器的访问的会话历史记录.pushState 和 replaceState，通过这两个 API 可以改变 url 地址且不会发送请求。
-  2. 当用户刷新页面之类的操作时，浏览器还是会给服务器发送请求。为了避免出现这种情况，需要服务器的支持，需要把所有路由都重定向到根页面。
-- vue-router传值
-  1. 动态路由 /:id route.param 
-  2. 拼路由地址 ?xx=xx route.query
-- 路由守卫
-  1. 在失活的组件里调用离开守卫 beforeRouteLeave
-  2. 全局前置守卫 beforeEach
-  3. 路由配置里调用 beforeEnter
-  4. 解析异步路由组件。
-  5. 被激活的组件里调用 beforeRouteEnter
-   
-     组件实例还没被创建，不能获取组件实例 `this`
-
-     可以通过传一个回调给 next来访问组件实例
-
-  6. 全局解析守卫 beforeResolve 
-  7. 导航被确认。
-  8. 全局后置钩子 afterEach
-  9. 触发 DOM 更新。
-  10. 用创建好的实例调用 beforeRouteEnter 守卫中传给 next 的回调函数。
 ## 由面试题引发的思考
 #### MVVM
   >Mvvm 软件架构设计模式，包含多种设计模式。
