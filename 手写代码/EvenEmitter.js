@@ -9,12 +9,20 @@ class eventEmitter {
   }
   static emit(...args){
     const eventType = args.splice(0,1)
+    if(!eventEmitter.eventObj[eventType]){
+      return
+    }
     eventEmitter.eventObj[eventType].forEach(cb => {
       cb(...args)
     });
+  }
+  static remove(eventType){
+    eventEmitter.eventObj[eventType]?delete eventEmitter.eventObj[eventType]:null
   }
 }
 eventEmitter.on('click',(...args)=>{
   console.log('onclick',args)
 })
 eventEmitter.emit('click',1,3,5)
+eventEmitter.remove('click')
+eventEmitter.emit('click',4,5,6)

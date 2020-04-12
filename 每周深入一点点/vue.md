@@ -65,21 +65,26 @@ vue对数组放弃采用object.defineProperty，出于对性能和收益的权�
 ![](./imgs/diff算法/diff_example_5.jpg)
 
 ## 组件通信
-- props
-  父传子
-- emit
-  子传父，父组件自定义事件传给子组件（非props接收），子组件emit触发自定义事件，以参数形式将值传给父组件
-- v-model其实是props,emit的语法糖
-  v-model原理
-`<input :value="msg” @input="msg=$event.target.value" />`
-- .sync语法糖
-- $ref
-  调用子组件的方法，传参
-- provide & inject 
+1. props & emit
+   - props
+     父传子
+   - emit
+     子传父，父组件自定义事件传给子组件（非props接收），子组件emit触发自定义事件，以参数形式将值传给父组件
+   - v-model其实是props,emit的语法糖
+     v-model原理
+   `<input :value="msg” @input="msg=$event.target.value" />`
+   - .sync语法糖
+
+2. 操作dom
+   - $refs
+     使用子组件的属性;调用子组件的方法，传参
+   - $children $parent
+3. provide & inject 
   主要为高阶插件/组件库提供用例
-- 插槽
+4. 插槽
   父向子传递标签
-- vuex
+5. 自定义eventEmitter
+6. vuex
 ![](./imgs/vuex@vue.png)
 ## 生命周期
 ![](imgs/生命周期@vue.png)
