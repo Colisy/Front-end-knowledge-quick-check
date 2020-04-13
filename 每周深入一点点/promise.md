@@ -1,11 +1,18 @@
 # promise
+## 作用
+- 回调地狱，函数嵌套，理解排查困难
 ## 基本用法
-1. 链式调用，实例上的方法返回一个promise实例
-   - then
-   - catch
-   - finally：无论失败成功都会执行
-   - all
-   - race
+ - Promise.prototype.finally：无论失败成功都会执行
+ - Promise.all
+ - Promise.race
+ - 链式调用，实例上的方法返回一个promise实例
+## 业务场景
+1. axios
+   - axios是基于promise开发的
+   - 使用时，进行二次封装，包一层Promise，并将Promise返回
+   - 响应拦截器，进行错误拦截，可以配置全局错误码，和业务模块错误码
+2. vuex
+    actions中向后台请求数据，为了确保dispatch后拿到数据再进行操作，在请求外面包一层Promise返回
 ## 任务队列
 > 一个宏任务 —> 一队微任务 —> 渲染
 宏任务执行完，再执行微任务then
