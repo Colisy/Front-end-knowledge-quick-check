@@ -169,3 +169,8 @@ for (const [i, v] of ['a', 'b', 'c'].entries()) {
 ```
 ## Proxy
 ## 模块化
+export/import
+
+1. export 命名导出（每个模块包含任意数量）
+2. export default 默认导出（每个模块包含一个）
+
