@@ -1,4 +1,6 @@
 # css
+#### html语义化
+>语义化是指根据内容，选择合适的标签，便于**开发者阅读**和写出更优雅的代码的同时，让**浏览器的爬虫**和机器很好的解析,利于**SEO**。
 #### html5
 ###### 根元素
 Element | Description 
@@ -9,8 +11,6 @@ Element | Description
 ----|------
 meta | `<meta name="参数" content="具体描述信息">`<br>`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
 
-屏幕分辨率的宽：window.screen.width
-网页可见区域宽：document.body.clientWidth/document.body.offsetWidth
 ###### 脚本
 Element | Description 
 ----|------
@@ -144,3 +144,6 @@ svg|矢量图
 - 变量：主题色
 - 混合mixins：类名自调
 - 映射：对象读值，颜色集
+
+#### 选择器优先级
+内联样式 > ID 选择器 > 类选择器 = (属性选择器) = 伪类选择器 > 标签选择器 = 伪元素选择器
