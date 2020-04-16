@@ -1,4 +1,3 @@
-// TODO
 function use(obj) {
   obj.name = 'bbb'
   obj = new Object()
@@ -22,7 +21,7 @@ function use(obj) {
  f1();
  f2();
  //-----------------
- 0 1 2
+ 0 1 0
  //---------------
   for(let i=0; i<10, i++){
     settimeout(_=> {
@@ -36,7 +35,7 @@ function use(obj) {
  //-------------
  let length = 10;
  function fn(){
-  log(this.length)
+  console.log(this.length)
  }
  var obj = {
    length: 5,
@@ -47,7 +46,7 @@ function use(obj) {
  }
  obj.method(fn, 1)
  //----------------
- 10 5
+ 0 2
  // -------------
  function Foo() {
    console.log(this)
@@ -59,7 +58,7 @@ function use(obj) {
  arr.f()
  document.onclick()
  //----------------
- [] window
+ [] document
  //----------------
  var str = 'sfsfa'  //'s|fs|fa'
  //---------
