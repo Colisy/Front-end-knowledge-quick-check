@@ -10,4 +10,6 @@ function disorder(array) {
   }
   return array;
 }
-console.log(disorder([1,2,3,4,5,6,7]))
+let arr = [1,2,3,4,5,6,7,8]
+disorder(arr)
+console.log(arr)
