@@ -1,9 +1,10 @@
 ## 去重
-- indexOf + lastIndexOf + filter
+- indexOf + reduce
   ```
-  const filterNonUnique = arr => arr.filter(i => 
-    arr.indexOf(i) === arr.lastIndexOf(i)
-  )
+  const filterNonUnique = arr => arr.reduce((pre,i)=> {
+    pre.indexOf(i) === -1?pre.push(i):null
+    return pre
+  },[])
   ```
 - `const unique = arr => [...new Set(arr)];`
 ## 扁平
@@ -21,6 +22,7 @@
 - flat ( Infinity )
 ## 最值
 - reduce
+
   `array.reduce((c,n)=>Math.max(c,n))`
 - Math.max ( ...array )  
  
