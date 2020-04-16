@@ -10,4 +10,4 @@
 [函数柯里化](函数柯里化.js)
 [数组乱序](数组乱序.js)
 [vue](./vue.html)
-[express](./lib-express/like-express.js)
+[express](./express/like-express.js)
