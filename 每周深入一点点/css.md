@@ -158,3 +158,9 @@ svg|矢量图
       }
   ```
 - 父级div定义`overflow：auto;`开启BFC
+
+#### img底部空白
+![](imgs/元素@css.png)
+行内块和行内元素默认`vertical-align:baseline`
+- 图片设置`vertical-align: bottom;`
+- 图片设置`display: block;`
