@@ -147,3 +147,14 @@ svg|矢量图
 
 #### 选择器优先级
 内联样式 > ID 选择器 > 类选择器 = (属性选择器) = 伪类选择器 > 标签选择器 = 伪元素选择器
+
+#### 清除浮动
+- clearfix
+  ```
+  .clearfix:after{
+        content: '';
+        display: block;
+        clear: both;//移到所有浮动元素下面
+      }
+  ```
+- 父级div定义`overflow：auto;`开启BFC

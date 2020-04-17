@@ -23,6 +23,8 @@
 8. 将渲染树每个节点绘制到页面上
 9. 加载js文件，执行js脚本
 10. 回流reflow和重绘repaint
+
+## 网络
 ###### 浏览器解析
 >内核是渲染引擎 Blink（基于 Webkit）和 JavaScript 引擎 V8.
 浏览器结合 DOM 树和 CSSOM 树构建 Render 树，并计算布局属性，绘制
@@ -107,6 +109,13 @@ Host头处理：同一台机器上，可能部署多个app，通过解析host+�
    - Domain：一般设置成二级域名，这样子域名可以共享
    - SameSite：之前默认是 None（无论是否跨站都会发送 Cookie） 的，Chrome80 后默认是 Lax （允许部分第三方请求携带 Cookie）。
    - HttpOnly：禁止用户通过 JavaScript 操作 cookie，防止窃取cookie
+
+###### post和get区别
+- 语义上，get用于获取数据，post用于提交数据，符合RESTful的api设计规范。
+- get参数有长度限制（受限于url长度，具体的数值取决于浏览器和服务器的限制），而post无限制。
+- GET 请求的参数通过 URL 传送，而 POST 放在 Request Body 中
+- GET 请求保留在浏览器历史记录中，请求可被收藏为书签，易于传播分享，如某件商品。
+- POST 请求在处理敏感数据时使用，如提交表单。
 ## 性能优化
 #### http方面
 >减少请求次数
