@@ -38,10 +38,18 @@ svg|矢量图
 - 标准盒子：宽度 = 内容的宽度width（content）+ border + padding + margin
 - box-sizing属性控制元素的盒子模型，默认标准盒子，border-box怪异盒子
 #### 隐藏
-- display：none 不显示对应的元素，在文档布局中不再分配空间（回流+重绘）
+- display：none 不显示对应的元素，dom树上不存在，在文档布局中不再分配空间（回流+重绘）
 - visibility：hidden 隐藏对应元素，在文档布局中仍保留原来的空间（重绘）
 #### BFC
-- 浮动元素和绝对定位元素，非块级盒子的块级容器（例如 inline-blocks, table-cells, 和 table-captions），以及overflow值不为"visiable"的块级盒子，都会为他们的内容创建新的BFC（Block Fromatting Context， 即块级格式上下文）。
+- 浮动元素
+  
+  绝对定位元素
+  
+  非block的块级容器（例如 inline-blocks,table-cells, 和 table-captions）
+  
+  overflow值不为"visiable"的盒子
+  
+  都会为他们的内容创建新的BFC（Block Fromatting Context， 即块级格式上下文）。
 - BFC渲染规则
   1. BFC是一个独立的容器，外面的元素不会影响里面的元素
   2. 计算BFC高度的时候浮动元素也会参与计算
@@ -49,24 +57,32 @@ svg|矢量图
   1. 防止浮动导致父元素高度塌陷
   2. 避免外边距折叠
 #### 伪元素和伪类
-- 单冒号(:)用于CSS3伪类，双冒号(::)用于CSS3伪元素。
 - 伪类：nth-child(n)/hover
 - 伪元素：before/selection
+- 单冒号(:)用于CSS3伪类，双冒号(::)用于CSS3伪元素。
+- 伪类优先级高于伪元素
 - [css参考](https://www.itcodemonkey.com/article/2853.html)
 #### rem
   相对于根元素`<html>`的字体大小的单位
 #### flex
 - 容器属性
+  
   flex-wrap flex-direction
+  
   行内 justify-content align-items
+  
   行间 align-content
 - 项目属性
+  
   order
+  
   flex-shrink 默认等比缩小，可以进行缩小排序
+  
   flex-grow 默认等分剩余空间，可以确定具体怎么分
   >两列布局
 
   flex-basis
+  
   align-self
 #### 布局
 - 上中下

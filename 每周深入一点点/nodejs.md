@@ -1,9 +1,13 @@
 # nodejs
 ###### 目的
 - 了解后端，与后端人员更好地合作
-- 接口层开发业务接口 & 实现 SSR
+- 接口层开发业务接口 
+- 实现 SSR
 - 高并发场景
-  >非阻塞异步I/O，不会像java一样开启新线程
+  
+  非阻塞异步I/O，不会像java一样开启新线程
+
+  >一个进程管着多个线程
 ###### 用处
 - nodejs是js运行环境
 - 运行在服务器，作为web server
@@ -19,7 +23,7 @@
 ###### RESTful风格API
 - 看Url就知道要什么
 - 看http method就知道干什么
-- 看http status  code就知道结果如何
+- 看http status code就知道结果如何
 ## 数据库
 #### redis
 内存型数据库
@@ -30,9 +34,11 @@
 硬盘型数据库
 ## express中间件原理
 - app.use注册中间件，先收集起来
+  
   每个中间件和他匹配的URL放在一个对象里`info = {path:'/',stack:(req,res,next)=>{}}`，再根据注册方式放入all/get/post数组中
-- 遇到http请求，通过 method 和 path 判断触发哪些中间件
+- 遇到http请求，通过 method 和 path 判断触发哪些中间件(url包含的子url都会触发)
 - 实现next机制，即上一个通过next触发下一个
+  
   定义一个next函数，并且手动调用一次，next函数里会从匹配中间件数组里取出一个，并且传入next，然后执行，中间件内部调用next才能继续取出执行，如此反复，直到没有next或数组为空
 
 
