@@ -1,23 +1,4 @@
 # es6
-## 数据类型
-- 基本数据类型symbol，唯一值
-- Map对象
-  >Map的key相比较普通对象来说更为灵活，普通对象的key只能以基础数据类型作为key值，并且所有传入的key值都会被转化成string类型，而Map的key可以是各种数据类型格式。
-- WeakMap
-  - 只能以复杂数据类型作为key
-  - 并且key值是弱引用，对于垃圾回收更加友好
-
-    WeakMap 内部有多少个成员，取决于垃圾回收机制有没有运行，运行前后很可能成员个数是不一样的，而垃圾回收机制何时运行是不可预测的
-- Set对象
-  >允许你存储任何类型的唯一值,可以去重`[...new Set(arr)]`
-## 函数
-- 默认值
-- 箭头函数
-  - 箭头函数没有 this，所以需要通过查找作用域链来确定 this 的值。
-  - 不能用call()、apply()、bind()方法修改里面的this
-  - 没有 arguments
-  - 不能通过 new 关键字调用
-  - 不存在prototype这个属性
 ## 声明
 - let/const
   - 块级作用域
@@ -32,7 +13,7 @@
 
   好处
   - 解决了内部变量覆盖外层变量的问题
-  - 计数的循环变量泄漏为全局变量  
+  - 解决了计数的循环变量泄漏为全局变量的问题  
 
 - 变量解构赋值
   - 对象解构赋值
@@ -103,7 +84,7 @@
   ```
   //Babel后，es6 => es5
   //ES5 寄生组合式继承
-  //子类构造函数，将属性完全拷贝一份继承，方法通过将自己显示原型指向父类隐性原型继承
+  //子类构造函数，将（实例）属性完全拷贝一份继承，（实例）方法通过将自己显性原型的隐性原型指向父类继承
 
   function Parent (name) {
     this.name = name;
@@ -124,13 +105,31 @@
 
   console.log(child1);
   ```
-  ⚠️在 ES6 中，父类的静态方法，可以被子类继承。`Object.setPrototypeOf(Child, Parent)`Child隐性原型指向Parent。
-## 字符串
-- 模板字符串
+  ⚠️在 ES6 中，不同于es5之处，父类的静态方法，可以被子类继承。`Object.setPrototypeOf(Child, Parent)`Child隐性原型指向Parent。
+
+## 数据类型
+- 基本数据类型symbol，唯一值
+- Map对象
+  >Map的key相比较普通对象来说更为灵活，普通对象的key只能以基础数据类型作为key值，并且所有传入的key值都会被转化成string类型，而Map的key可以是各种数据类型格式。
+- WeakMap
+  - 只能以复杂数据类型作为key
+  - 并且key值是弱引用，对于垃圾回收更加友好
+
+    WeakMap 内部有多少个成员，取决于垃圾回收机制有没有运行，运行前后很可能成员个数是不一样的，而垃圾回收机制何时运行是不可预测的
+- Set对象
+  >允许你存储任何类型的唯一值,可以去重`[...new Set(arr)]`
+## 函数
+- 默认值
+- 箭头函数
+  - 箭头函数没有 this，所以需要通过查找作用域链来确定 this 的值。
+  - 不能用call()、apply()、bind()方法修改里面的this
+  - 没有 arguments
+  - 不能通过 new 关键字调用
+  - 不存在prototype这个属性
 ## 数组
 - 扩展运算符...
-  - arguments 转数组
   - 解构
+  - arguments （重写）转数组
   ```
   let [a, b, ...arr] = [1, 2, 3, 4, 5];
   //arr = [3,4,5]
@@ -143,7 +142,7 @@
   var iterator = arr.entries();
 
   for (let e of iterator) {
-      console.log(e);
+      console.log(e);//[0,'a']
   }
   ```
 
@@ -151,6 +150,10 @@
 - Object.defineProperty
 - Object.assign
 - Object.keys
+
+## 字符串
+- 模板字符串
+
 ## for...of循环
 使用范围：
 - 数组
