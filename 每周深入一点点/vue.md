@@ -51,7 +51,7 @@
   1. 用js对象模拟DOM,产生虚拟dom
   2. 把此虚拟DOM转成真实DOM并插入页面中
   3. 数据变化，生成新的虚拟dom
-      - diff新老两棵虚拟DOM树的差异
+      - 通过diff算法，比较出新老两棵虚拟DOM树的差异
       - 差异patch到真实dom上  
 
 虚拟DOM带来的好处：
@@ -62,7 +62,7 @@
 1. VNode模拟dom树 ![](imgs/Vnode@vue.jpg)
 2. diff算法（就地修改） ![](imgs/diff算法/diff_patch@vue.jpg)
    - 同层级比较，并不需要递归![](imgs/diff算法/diff@vue.jpg)
-   - Diff 的比较逻辑：能不移动，尽量不移动。不行就移动，实在不行就新建
+   - Diff 的比较逻辑：能不移动，尽量不移动。不行就移动，实在不行再增删
 
           旧头 == 新头 旧尾 == 新尾
 
