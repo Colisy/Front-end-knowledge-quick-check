@@ -1,11 +1,11 @@
-function quickSort(arr,left,right){
+function quickSort(arr){
   if (arr.length<=1) {
     return arr
   }
   let midIndex = arr.length/2
   let mid = arr.splice(midIndex,1)[0]
-  left = []
-  right = []
+  let left = []
+  let right = []
   arr.forEach(item => {
     if (item > mid) {
       right.push(item)
