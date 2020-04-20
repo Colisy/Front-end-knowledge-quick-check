@@ -20,6 +20,13 @@
   }  
   ```
 - flat ( Infinity )
+- replace + JSON.parse (正则)
+  ```
+  let str = JSON.stringify(arr)
+  str = str.replace(/(\[|\])/g, '');
+  str = '[' + str + ']';
+  arr = JSON.parse(str);
+  ```
 ## 最值
 - reduce
 
