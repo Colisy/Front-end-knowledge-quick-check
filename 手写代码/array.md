@@ -1,5 +1,5 @@
 ## 去重
-- indexOf + reduce
+- reduce + indexOf
   ```
   const filterNonUnique = arr => arr.reduce((pre,i)=> {
     pre.indexOf(i) === -1?pre.push(i):null
@@ -8,7 +8,7 @@
   ```
 - `const unique = arr => [...new Set(arr)];`
 ## 扁平
-- reduce
+- reduce + 递归
   ```
   function flatten(array) {
     return array.reduce(
@@ -23,6 +23,8 @@
 ## 最值
 - reduce
 
-  `array.reduce((c,n)=>Math.max(c,n))`
+  如果没有提供初始值，则将使用数组中的第一个元素
+
+  `array.reduce((p,c)=>Math.max(p,c))`
 - Math.max ( ...array )  
  
