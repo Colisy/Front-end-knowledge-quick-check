@@ -23,7 +23,7 @@
 8. 将渲染树每个节点绘制到页面上
 9. 加载js文件，执行js脚本
 10. 回流reflow和重绘repaint
-
+![](imgs/渲染@url.png)
 ## 网络
 ###### 浏览器解析
 >内核是渲染引擎 Blink（基于 Webkit）和 JavaScript 引擎 V8.
