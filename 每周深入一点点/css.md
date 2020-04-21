@@ -180,3 +180,7 @@ svg|矢量图
 行内块和行内元素默认`vertical-align:baseline`
 - 图片设置`vertical-align: bottom;`
 - 图片设置`display: block;`
+
+#### href src
+- src 用于替换当前元素，会**阻塞**浏览器的渲染，直到该资源加载完毕
+- href 用于在当前文档和引用资源之间建立联系,**并行**下载该文档，并且不会停止对当前文档的处理

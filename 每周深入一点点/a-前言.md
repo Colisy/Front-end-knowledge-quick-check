@@ -20,6 +20,7 @@
 - [es6](./es6.md)
 ## 框架 （深入）
 - [vue](./vue.md)
+- [vuex](./vue依赖库/vuex.md)
 - [vue-router](./vue依赖库/vue-router.md)
 - [vue-cli](./vue依赖库/vue-cli.md)
 ## 工程化 （实战）
