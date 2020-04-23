@@ -1,6 +1,13 @@
 # promise
 ## 作用
 - 解决回调地狱，函数嵌套，理解排查困难问题
+
+## 简介
+
+- promise有三种状态，pedding/resolved/rejected。
+- promise new调用的时候会传入回调函数，这个回调函数中会注入两个方法，当异步结束的时候可以调用第一个函数，将状态改为resolved，将值传给成功的回调函数。
+- 用then方法绑定回调函数
+
 ## 基本用法
  - Promise.all
 

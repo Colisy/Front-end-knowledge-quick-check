@@ -1,4 +1,5 @@
-//观察者模式
+// 发布/订阅模式 在观察者模式的基础上，在目标和观察者之间增加一个调度中心。
+// 发布/订阅模式
 class eventEmitter {
   static eventObj = {}
   static on(eventType,cb){

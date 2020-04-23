@@ -240,9 +240,11 @@ beforeDestroy() { clearInterval(this.timer) }清除定时器
   3. v-if & v-for : 不要同时使用在一个标签上，v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中
 #### 修饰符
   事件修饰符 
-  - stop阻止冒泡事件 
-  - prevent阻止默认事件 
-  - once一次渲染 静态信息避免重复渲染
+  - stop: 阻止冒泡事件 
+  - prevent: 阻止默认事件 
+  - capture: 使用事件捕获模式(即内部元素触发的事件先在此处理，然后才交由内部元素进行处理)
+  - native: 给组件绑定事件(否则会认为是自定义事件，需要emit触发)
+  - once: 一次渲染 静态信息避免重复渲染
 
 
 

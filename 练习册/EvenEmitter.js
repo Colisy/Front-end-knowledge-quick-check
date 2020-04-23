@@ -1,3 +1,4 @@
+// 发布/订阅模式
 class EvenEmitter {
   static evenObj = {}
   on(type,cb){

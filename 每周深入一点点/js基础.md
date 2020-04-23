@@ -77,3 +77,10 @@ s = null;
 
 - 官方推荐方法（替换方法）：用every和some替代forEach函数。every在碰到return false的时候，中止循环。some在碰到return true的时候，中止循环
 
+#### ajax
+###### 起因
+Web的运作原理：一次HTTP请求对应一个页面。
+###### 作用
+如果要让用户留在当前页面中，同时发出新的HTTP请求，就必须用JavaScript发送这个新请求，接收到数据后，再用JavaScript更新页面，这样一来，用户就感觉自己仍然停留在当前页面，但是数据却可以不断地更新。
+###### 具体实现
+[链接](https://www.lagou.com/lgeduarticle/20341.html)
