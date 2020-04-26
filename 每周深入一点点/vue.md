@@ -96,6 +96,14 @@
       `<input :value="msg” @input="msg=$event.target.value" />`
    - .sync语法糖
 
+      `<text-document :title.sync="doc.title"></text-document>`
+      ```
+        <text-document
+          :title="doc.title"
+          @update:title="doc.title = $event"
+        ></text-document>      
+      ```
+
 2. 操作dom
    - $refs
      
@@ -192,9 +200,9 @@ beforeDestroy() { clearInterval(this.timer) }清除定时器
 #### 组件中的data为什么是函数
   >组件是构造函数，注册组件是创建实例对象，data是函数，每个实例可以维护一份独立的拷贝,防止数据污染
 #### keep-alive
-  - keepalive是一个抽象的组件，缓存的组件不会触发mounted,为此提供activated和deactivated钩子函数
+  - keep-alive是一个抽象的组件，缓存的组件不会触发mounted,为此提供activated和deactivated钩子函数
   - 3个属性,include/exclude/max,先匹配被包含组件的 name 字段，如果 name 不可用，则匹配当前组件 components 配置中的注册名称。
-  - 与动态组件结合（tap）
+  - 与动态组件结合（tab）
     ```
     <!-- 失活的组件将会被缓存！-->
     <keep-alive>
