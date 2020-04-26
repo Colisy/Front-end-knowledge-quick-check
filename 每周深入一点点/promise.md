@@ -18,6 +18,13 @@
 
  - Promise.prototype.finally：无论失败成功都会执行
  - 链式调用，实例上的方法和以上方法会返回一个promise实例
+ - 取消promise，根据链式调用，`return new Promise(()=>{})`,返回`pedding`状态的promise
+
+## async/await
+- 同步写法，更优雅
+- 结合promise使用，造成阻塞
+- 返回promise
+- 可以.catch也可以try/catch捕获错误
 ## 业务场景
 1. axios
    - axios是基于promise开发的

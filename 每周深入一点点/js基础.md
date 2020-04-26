@@ -91,3 +91,8 @@ Web的运作原理：一次HTTP请求对应一个页面。
 XMLHttpRequest对象
 
 [链接](https://www.lagou.com/lgeduarticle/20341.html)
+
+#### 跳出循环
+- break：循环中断（最内层）
+- continue：本次跳出（开始新迭代）
+- return：函数跳出
