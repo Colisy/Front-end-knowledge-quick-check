@@ -25,6 +25,7 @@
 - [vue-cli](./vue依赖库/vue-cli.md)
 ## 工程化 （实战）
 - [webpack](./webpack.md)
+- [git](git.md)
 ## 网络 （了解）
 - [输入url后发生了什么(含性能优化)](./输入url后发生了什么(含性能优化).md)
 - [跨域](./跨域.md)
