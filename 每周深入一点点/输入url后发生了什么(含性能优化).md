@@ -18,21 +18,22 @@
 
 4. 服务器接收请求后，开始查库，读文件，拼接要返回的http响应
 5. 浏览器收到html文件开始渲染
-6. 解析html为dom树，解析css为css-tree，最终生成render-tree 渲染树，阻塞渲染
+6. 解析html为dom树，解析css为css-tree，最终生成render-tree 渲染树
 7. 遍历渲染树开始布局，计算每个节点的大小位置信息
 8. 将渲染树每个节点绘制到页面上
 9. 加载js文件，执行js脚本
 10. 回流reflow和重绘repaint
 ![](imgs/渲染@url.png)
-## 网络
 ###### 浏览器解析
 >内核是渲染引擎 Blink（基于 Webkit）和 JavaScript 引擎 V8.
 浏览器结合 DOM 树和 CSSOM 树构建 Render 树，并计算布局属性，绘制
+
+## 网络
 ###### http/https/https 1.1/https 2.0
 - https = http + ssl/tls
 
   加了一层ssl协议，来进行加密
-- http1.1支持
+- https1.1支持
 
   长链接：减少了TCP建立和关闭连接的消耗和延迟，一次建立多次请求和响应
   
@@ -41,7 +42,7 @@
   **Etag**、If-Modified-Since、If-Unmodified-Since、If-Match、If-None-Match、**Cache-Control**
   
   Host头处理：同一台机器上，可能部署多个app，通过解析host+端口，指定具体访问站点
-- http2.0支持
+- https2.0支持
   
   多路复用：在一个TCP连接中可以同时发送多个请求
   
@@ -68,7 +69,7 @@
 
   301 - 永久重定向
   
-  >响应会被浏览器缓存，只有在第一次的时候，才会去真正的发起第一个请求，后面的都走缓存。
+  >响应会被浏览器缓存，只有在第一次的时候，才会去真正的发起第一个请求，后面的都走缓存的新地址。
   <br>
   搜索引擎在抓取新内容的同时也将旧的网址替换为重定向之后的网址,旧链接的权重传给新链接，利于seo
 

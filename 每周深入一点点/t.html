@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+  <style type="text/css">
+    .layout.absolute div{
+      position: absolute;
+      width: 100%;
+    }
+    .layout.absolute .top{
+      top: 0;
+      height: 100px;
+      background: red;
+    }
+    .layout.absolute .bottom{
+      bottom: 0;
+      height: 100px;
+      background: blue;
+    }
+    .layout.absolute .center{
+      top: 100px;
+      bottom: 100px;
+      background: yellow;
+      overflow: auto;
+    }
+  
+  </style>
+<body>
+  <article class="layout absolute">
+    <div class="top">asd</div>
+    <div class="center">
+      <h1>absolute中间自适应元素</h1>
+    </div>
+    <div class="bottom">asd</div>
+  </article> 
+</body>
+</html>

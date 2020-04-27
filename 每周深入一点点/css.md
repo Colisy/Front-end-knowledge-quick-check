@@ -9,7 +9,7 @@ html | 所有元素必须是这个元素的子节点
 ###### 文档元数据
 Element | Description 
 ----|------
-meta | `<meta name="参数" content="具体描述信息">`<br>`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+meta | `<meta name="参数" content="具体描述信息">`<br>`<meta name="viewport" content="width=device-width, initial-scale=1.0">`<br>(布局视口=视觉视口，否则一般默认布局视口=980px，会有横向滚动条，手指缩放后页面会很小)
 
 ###### 脚本
 Element | Description 
@@ -86,70 +86,69 @@ svg|矢量图
   align-self
 #### 布局
 - 上中下
-  1. float + position
-```
-<style type="text/css">
-  .layout.absolute div{
-    position: absolute;
-    float: left;
-  }
-  .layout.absolute .top{
-    top: 0;
-    height: 100px;
-    background: red;
-  }
-  .layout.absolute .bottom{
-    bottom: 0;
-    height: 100px;
-    background: blue;
-    float: left;
-  }
-  .layout.absolute .center{
-    top: 100px;
-    bottom: 100px;
-    background: yellow;
-    overflow: auto;
-  }
+    - position
+  ```
+  <style type="text/css">
+    .layout.absolute div{
+      position: absolute;
+      width: 100%;
+    }
+    .layout.absolute .top{
+      top: 0;
+      height: 100px;
+      background: red;
+    }
+    .layout.absolute .bottom{
+      bottom: 0;
+      height: 100px;
+      background: blue;
+    }
+    .layout.absolute .center{
+      top: 100px;
+      bottom: 100px;
+      background: yellow;
+      overflow: auto;
+    }
 
-</style>
-<article class="layout absolute">
-  <div class="top"></div>
-  <div class="center">
-    <h1>absolute中间自适应元素</h1>
-  </div>
-  <div class="bottom"></div>
-</article> 
-```
-2. flex
-```
-<style type="text/css">
-  .layout.flexbox{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction:column;
-  }
-  .layout.flexbox .top{
-    height: 100px;						
-    background: red;
-  }
-  .layout.flexbox .center{
-    flex:1;
-    background: yellow;
-  }
-  .layout.flexbox .bottom{
-    height: 100px;
-    background: blue;
-  }
-</style>
-<article class="layout flexbox">
-  <div class="top"></div>
-  <div class="center">
-    <h1>flexbox中间自适应元素</h1>
-  </div>
-  <div class="bottom"></div>
-</article> 
-```
+  </style>
+  <article class="layout absolute">
+    <div class="top"></div>
+    <div class="center">
+      <h1>absolute中间自适应元素</h1>
+    </div>
+    <div class="bottom"></div>
+  </article> 
+  ```
+    - flex
+  ```
+  <style type="text/css">
+    .layout.flexbox{
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex-direction:column;
+    }
+    .layout.flexbox .top{
+      height: 100px;						
+      background: red;
+    }
+    .layout.flexbox .center{
+      flex:1;
+      background: yellow;
+    }
+    .layout.flexbox .bottom{
+      height: 100px;
+      background: blue;
+    }
+  </style>
+  <article class="layout flexbox">
+    <div class="top"></div>
+    <div class="center">
+      <h1>flexbox中间自适应元素</h1>
+    </div>
+    <div class="bottom"></div>
+  </article> 
+  ```
 #### 省略号
 - overflow: hidden；（文字长度超出限定宽度，则隐藏超出的内容）
 - white-space: nowrap；（设置文字在一行显示，不能换行）
