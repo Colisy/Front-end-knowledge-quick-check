@@ -21,9 +21,9 @@
  - 取消promise，根据链式调用，`return new Promise(()=>{})`,返回`pedding`状态的promise
 
 ## async/await
-- 同步写法，更优雅
-- 结合promise使用，造成阻塞
-- 返回promise
+- async函数返回promise
+- await结合promise使用，阻塞代码，直到得到 resolve 的值
+- 可用于，后面请求需要前面的一个甚至多个的结果的情况，同步写法，更优雅
 - 可以.catch也可以try/catch捕获错误
 ## 业务场景
 1. axios
@@ -41,7 +41,8 @@
  - then在promise有结果后才进入微任务
 
  - 可以理解为await后面的内容就相当于放到了Promise.then里面,
- 如果不是Promise对象的话，就会直接返回对应的值，相当于Promise.resolve()
+ 
+   如果不是Promise对象的话，就会直接返回对应的值，相当于Promise.resolve()
 
 **定时器**
 
