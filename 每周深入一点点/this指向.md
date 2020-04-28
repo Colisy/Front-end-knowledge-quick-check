@@ -6,6 +6,7 @@
 2. **对象调用**
 >this 永远指向**最后调用**它的那个对象
 3. **apply/call/bind**
+>传null或undefined时，this将是JS执行环境的全局变量(window/global)。
 4. **new调用**
 5. **箭头函数**
 >没有自己的this，受周围环境影响，沿着作用域链查找确定this。
