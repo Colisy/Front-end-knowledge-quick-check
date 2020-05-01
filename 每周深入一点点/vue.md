@@ -1,6 +1,8 @@
 # vue
 ## 原理
 > 正确高效的使用框架，必要时刻将会解决疑难杂症👍
+
+![](./imgs/运行机制@vue.png)
 #### 响应式原理
 - Observer/观察者
 
@@ -79,6 +81,69 @@
 ![](./imgs/diff算法/diff_example_4.jpg)
 ![](./imgs/diff算法/diff_example_5.jpg)
 
+## 生命周期
+![](imgs/生命周期@vue.png)
+
+#### 创建阶段
+1. beforeCreate
+   
+    new Vue({}) 创建vue实例
+    
+    初始化默认事件和生命周期
+    
+    执行beforeCreate钩子函数
+  
+    >这个时候，数据data、methods还没有挂载到vm对象，无法访问到数据data和真实的dom挂载元素el
+
+2. created:
+   
+    初始化data和methods
+
+    执行created钩子函数
+
+    >这个时候,已可使用到数据data，也可更改数据data，在这里更改数据不会触发updated钩子函数，一般可以在这里做初始数据的获取。注意：此时挂件元素el还不存在
+
+3. beforeMount
+   
+    判断对象是否有挂载元素el选项
+    
+    如果有的话就继续向下编译，如果没有el选项，则停止编译，也就意味着停止了生命周期，直到在该vue实例上手动挂载，即调用vm.$mount(el)。
+
+    编译模版`<template>`形成AST -> render function -> 虚拟DOM -> render
+  
+    执行beforeMount钩子函数
+  
+    >在这里也可以更改数据，不会触发updated
+
+4. mounted
+   
+   render后，渲染出真实dom
+   
+   执行mounted钩子函数
+  
+    >组件已经出现在页面中，可以在这里操作真实dom
+#### 运行阶段  
+- beforeUpdate: data更改之后，会立即执行beforeUpdate
+- updated: 
+  
+  生成新虚拟dom树，与旧dom树diff，patch到真实dom树
+
+  dom也重新render完成
+#### 销毁阶段
+- beforeDestroy: 调用$destroy方法后，在实例销毁之前，立即执行beforeDestroy
+
+  >实例仍然完全可用,一般在这里做一些善后工作，例如清除计时器
+
+- destroyed: 组件的数据绑定、监听...去掉，执行 destroyed钩子函数
+
+  >Vue 实例指示的所有东西都会解除绑定，所有的事件监听器会被移除，所有的子实例也会被销毁
+
+#### 父子组件生命周期顺序
+从外到内，然后再从内到外
+
+destroyed和mounted一样都是先子再父
+
+![](imgs/父子组件生命周期顺序@vue.png)
 ## 组件通信
 1. props & emit
    - props
@@ -120,69 +185,7 @@
 5. 自定义eventEmitter
 6. vuex
 ![](./imgs/vuex@vue.png)
-## 生命周期
-![](imgs/生命周期@vue.png)
 
-#### 创建阶段
-1. beforeCreate
-   
-    new Vue({}) 创建vue实例
-    
-    初始化默认事件和生命周期
-    
-    执行beforeCreate钩子函数
-  
-    >这个时候，数据data、methods还没有挂载到vm对象，无法访问到数据data和真实的dom挂载元素el
-
-2. created:
-   
-    初始化data和methods
-
-    执行created钩子函数
-
-    >这个时候,已可使用到数据data，也可更改数据data，在这里更改数据不会触发updated钩子函数，一般可以在这里做初始数据的获取。注意：此时挂件元素el还不存在
-
-3. beforeMount
-   
-    判断对象是否有挂载元素el选项
-    
-    如果有的话就继续向下编译，如果没有el选项，则停止编译，也就意味着停止了生命周期，直到在该vue实例上手动挂载，即调用vm.$mount(el)。
-
-    编译模版`<template>` -> 执行指令形成模版字符串 -> 虚拟DOM -> render
-  
-    执行beforeMount钩子函数
-  
-    >在这里也可以更改数据，不会触发updated
-
-4. mounted
-   
-   render后，渲染出真实dom
-   
-   执行mounted钩子函数
-  
-    >组件已经出现在页面中，可以在这里操作真实dom
-#### 运行阶段  
-- beforeUpdate: data更改之后，会立即执行beforeUpdate
-- updated: 
-  
-  生成新虚拟dom树，与旧dom树diff，patch到真实dom树
-
-  dom也重新render完成
-#### 销毁阶段
-- beforeDestroy: 调用$destroy方法后，在实例销毁之前，立即执行beforeDestroy
-
-  >实例仍然完全可用,一般在这里做一些善后工作，例如清除计时器
-
-- destroyed: 组件的数据绑定、监听...去掉，执行 destroyed钩子函数
-
-  >Vue 实例指示的所有东西都会解除绑定，所有的事件监听器会被移除，所有的子实例也会被销毁
-
-#### 父子组件生命周期顺序
-从外到内，然后再从内到外
-
-destroyed和mounted一样都是先子再父
-
-![](imgs/父子组件生命周期顺序@vue.png)
 ## vue性能优化
 Vue 组件销毁时，会自动解绑它的全部指令及事件监听器，但是仅限于组件本身的事件。
 beforeDestroy() { clearInterval(this.timer) }清除定时器
