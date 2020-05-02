@@ -201,7 +201,7 @@ beforeDestroy() { clearInterval(this.timer) }清除定时器
   在MVVM架构下，View和Model没有直接联系，而是**通过ViewModel进行交互**，我们**只关注业务逻辑**，不需要手动操作DOM，不需要关注View和Model的同步工作。
 
 #### 组件中的data为什么是函数
-  >组件是构造函数(传入配置)，注册组件是创建实例对象，data是函数，每个实例可以维护一份独立的拷贝,防止数据污染
+  >注册组件是传入配置创建实例对象，data是函数，每个实例可以维护一份独立的拷贝,防止数据污染
 #### keep-alive
   - keep-alive是一个抽象的组件，缓存的组件不会触发mounted,为此提供activated和deactivated钩子函数
   - 3个属性,include/exclude/max,先匹配被包含组件的 name 字段，如果 name 不可用，则匹配当前组件 components 配置中的注册名称。
