@@ -1,0 +1,1087 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>作用域 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="原型链.html" />
+    
+    
+    <link rel="prev" href="webpack.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">业务引发的思考</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../业务引发的思考/a-前言.html">
+            
+                <a href="../业务引发的思考/a-前言.html">
+            
+                    
+                    a-前言.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    imgs
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../业务引发的思考/从零搭建项目形成技术闭环.html">
+            
+                <a href="../业务引发的思考/从零搭建项目形成技术闭环.html">
+            
+                    
+                    从零搭建项目形成技术闭环
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../业务引发的思考/后台管理前端鉴权.html">
+            
+                <a href="../业务引发的思考/后台管理前端鉴权.html">
+            
+                    
+                    后台管理前端鉴权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../业务引发的思考/抢购项目.html">
+            
+                <a href="../业务引发的思考/抢购项目.html">
+            
+                    
+                    抢购项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../业务引发的思考/最近解决的难题.html">
+            
+                <a href="../业务引发的思考/最近解决的难题.html">
+            
+                    
+                    最近解决的难题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../业务引发的思考/组件开发.html">
+            
+                <a href="../业务引发的思考/组件开发.html">
+            
+                    
+                    组件开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../业务引发的思考/记录一次性能优化.html">
+            
+                <a href="../业务引发的思考/记录一次性能优化.html">
+            
+                    
+                    记录一次性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../业务引发的思考/重构移植抢购项目.html">
+            
+                <a href="../业务引发的思考/重构移植抢购项目.html">
+            
+                    
+                    重构移植抢购项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">数据结构和算法</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    数据结构-哈希表
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    数据结构-字符串
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../数据结构和算法/数据结构-字符串/api.html">
+            
+                <a href="../数据结构和算法/数据结构-字符串/api.html">
+            
+                    
+                    api
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    数据结构-数组
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../数据结构和算法/数据结构-数组/api.html">
+            
+                <a href="../数据结构和算法/数据结构-数组/api.html">
+            
+                    
+                    api
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../数据结构和算法/时间复杂度.html">
+            
+                <a href="../数据结构和算法/时间复杂度.html">
+            
+                    
+                    时间复杂度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <span>
+            
+                    
+                    算法-动态规划
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <span>
+            
+                    
+                    算法-排序
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" >
+            
+                <span>
+            
+                    
+                    算法-递归
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">每周深入一点点</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="a-前言.html">
+            
+                <a href="a-前言.html">
+            
+                    
+                    JS基础 （深入）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="css.html">
+            
+                <a href="css.html">
+            
+                    
+                    css
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="dom.html">
+            
+                <a href="dom.html">
+            
+                    
+                    dom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="es6.html">
+            
+                <a href="es6.html">
+            
+                    
+                    es6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="git.html">
+            
+                <a href="git.html">
+            
+                    
+                    git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" >
+            
+                <span>
+            
+                    
+                    imgs
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.1" >
+            
+                <span>
+            
+                    
+                    diff算法
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.2" >
+            
+                <span>
+            
+                    
+                    width
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="js基础.html">
+            
+                <a href="js基础.html">
+            
+                    
+                    js基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="nodejs.html">
+            
+                <a href="nodejs.html">
+            
+                    
+                    nodejs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="promise.html">
+            
+                <a href="promise.html">
+            
+                    
+                    promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="this指向.html">
+            
+                <a href="this指向.html">
+            
+                    
+                    this指向✌️
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="vue.html">
+            
+                <a href="vue.html">
+            
+                    
+                    vue
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" >
+            
+                <span>
+            
+                    
+                    vue依赖库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.12.1" data-path="vue依赖库/vue-cli.html">
+            
+                <a href="vue依赖库/vue-cli.html">
+            
+                    
+                    vue-cli
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12.2" data-path="vue依赖库/vue-router.html">
+            
+                <a href="vue依赖库/vue-router.html">
+            
+                    
+                    vue-router
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12.3" data-path="vue依赖库/vuex.html">
+            
+                <a href="vue依赖库/vuex.html">
+            
+                    
+                    vuex
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="webpack.html">
+            
+                <a href="webpack.html">
+            
+                    
+                    webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.14" data-path="作用域.html">
+            
+                <a href="作用域.html">
+            
+                    
+                    作用域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.15" data-path="原型链.html">
+            
+                <a href="原型链.html">
+            
+                    
+                    原型链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.16" data-path="安全.html">
+            
+                <a href="安全.html">
+            
+                    
+                    安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.17" data-path="屏幕适配.html">
+            
+                <a href="屏幕适配.html">
+            
+                    
+                    屏幕适配
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.18" data-path="浏览器.html">
+            
+                <a href="浏览器.html">
+            
+                    
+                    浏览器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.19" data-path="深浅拷贝.html">
+            
+                <a href="深浅拷贝.html">
+            
+                    
+                    深浅拷贝
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.20" data-path="规范.html">
+            
+                <a href="规范.html">
+            
+                    
+                    规范
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.21" data-path="跨域.html">
+            
+                <a href="跨域.html">
+            
+                    
+                    跨域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.22" data-path="输入url后发生了什么(含性能优化">
+            
+                <span>
+            
+                    
+                    输入url后发生了什么➡️
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.23" data-path="闭包.html">
+            
+                <a href="闭包.html">
+            
+                    
+                    闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">练习册</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../练习册/云面试题.html">
+            
+                <a href="../练习册/云面试题.html">
+            
+                    
+                    编程基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">造轮子</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../造轮子/a-前言.html">
+            
+                <a href="../造轮子/a-前言.html">
+            
+                    
+                    a-前言.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../造轮子/array.html">
+            
+                <a href="../造轮子/array.html">
+            
+                    
+                    去重
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" >
+            
+                <span>
+            
+                    
+                    express
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >作用域</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4F5C;&#x7528;&#x57DF;">&#x4F5C;&#x7528;&#x57DF;</h1>
+<h2 id="&#x9759;&#x6001;&#x4F5C;&#x7528;&#x57DF;&#xFF08;&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#xFF09;">&#x9759;&#x6001;&#x4F5C;&#x7528;&#x57DF;&#xFF08;&#x8BCD;&#x6CD5;&#x4F5C;&#x7528;&#x57DF;&#xFF09;</h2>
+<blockquote>
+<p>&#x300A;JavaScript&#x6743;&#x5A01;&#x6307;&#x5357;&#x300B;: JavaScript &#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x7528;&#x5230;&#x4E86;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#xFF0C;&#x8FD9;&#x4E2A;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x662F;&#x5728;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x65F6;&#x5019;&#x521B;&#x5EFA;&#x7684;&#x3002;</p>
+<h2 id="&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;">&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;</h2>
+<ul>
+<li>&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#xFF1A;&#x5F53;<strong>&#x6267;&#x884C;&#x5230;&#x4E00;&#x4E2A;&#x51FD;&#x6570;</strong>&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4F1A;&#x8FDB;&#x884C;<strong>&#x51C6;&#x5907;&#x5DE5;&#x4F5C;</strong>&#xFF0C;&#x53EB;&#x505A;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;</li>
+<li>&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x6808; (&#x5148;&#x8FDB;&#x540E;&#x51FA;) &#xFF1A;JavaScript &#x5F15;&#x64CE;&#x521B;&#x5EFA;&#x4E86;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x6808;&#xFF08;Execution context stack&#xFF0C;ECS&#xFF09;&#x6765;&#x7BA1;&#x7406;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587; &#xFF08;&#x53EF;&#x7528;&#x6570;&#x7EC4;&#x6A21;&#x62DF;&#xFF09;
+&#x5F53; JavaScript &#x5F00;&#x59CB;&#x8981;&#x89E3;&#x91CA;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6700;&#x5148;&#x9047;&#x5230;&#x7684;&#x5C31;&#x662F;&#x5168;&#x5C40;&#x4EE3;&#x7801;&#xFF0C;&#x6240;&#x4EE5;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#x9996;&#x5148;&#x5C31;&#x4F1A;&#x5411;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x6808;&#x538B;&#x5165;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x6211;&#x4EEC;&#x7528; globalContext &#x8868;&#x793A;&#x5B83;&#xFF0C;&#x5E76;&#x4E14;&#x53EA;&#x6709;&#x5F53;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7ED3;&#x675F;&#x7684;&#x65F6;&#x5019;&#xFF0C;ECStack &#x624D;&#x4F1A;&#x88AB;&#x6E05;&#x7A7A;&#xFF0C;&#x6240;&#x4EE5;&#x7A0B;&#x5E8F;&#x7ED3;&#x675F;&#x4E4B;&#x524D;&#xFF0C; ECStack &#x6700;&#x5E95;&#x90E8;&#x6C38;&#x8FDC;&#x6709;&#x4E2A; globalContext<pre><code>ECStack = [
+globalContext
+];
+</code></pre>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x90FD;&#x6709;&#x4E09;&#x4E2A;&#x91CD;&#x8981;&#x5C5E;&#x6027;&#xFF1A;</li>
+</ul>
+</blockquote>
+<ol>
+<li>&#x53D8;&#x91CF;&#x5BF9;&#x8C61;(Variable object&#xFF0C;VO)</li>
+<li>&#x4F5C;&#x7528;&#x57DF;&#x94FE;(Scope chain)</li>
+<li>this<h2 id="&#x53D8;&#x91CF;&#x5BF9;&#x8C61;">&#x53D8;&#x91CF;&#x5BF9;&#x8C61;</h2>
+</li>
+<li>&#x5168;&#x5C40;&#x4E0A;&#x4E0B;&#x6587;&#x7684;&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#x521D;&#x59CB;&#x5316;&#x662F;&#x5168;&#x5C40;&#x5BF9;&#x8C61;<pre><code>globalContext = {
+  VO: [global],
+  Scope: [globalContext.VO],
+  this: globalContext.VO
+}
+</code></pre></li>
+<li>&#x51FD;&#x6570;&#x4E0A;&#x4E0B;&#x6587;&#x7684;&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#x521D;&#x59CB;&#x5316;&#x53EA;&#x5305;&#x62EC; Arguments &#x5BF9;&#x8C61;<pre><code>AO = {
+  arguments: {
+    length: 0
+  }
+}
+</code></pre></li>
+<li><p>&#x5728;&#x8FDB;&#x5165;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587; (&#x51FD;&#x6570;&#x8C03;&#x7528;,&#x5F00;&#x59CB;&#x6267;&#x884C;) &#x65F6;&#x4F1A;&#x7ED9;&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x5F62;&#x53C2;&#x3001;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x3001;&#x53D8;&#x91CF;&#x58F0;&#x660E;&#x7B49;&#x521D;&#x59CB;&#x7684;&#x5C5E;&#x6027;&#x503C;</p>
+</li>
+<li><p>&#x5728;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x9636;&#x6BB5;&#xFF0C;&#x4F1A;&#x518D;&#x6B21;&#x4FEE;&#x6539;&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x503C;</p>
+</li>
+</ol>
+<p>&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<ol>
+<li><p>&#x8FDB;&#x5165;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;</p>
+<p> &#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#x4F1A;&#x5305;&#x62EC;&#xFF1A;</p>
+<ul>
+<li><p>&#x51FD;&#x6570;&#x7684;&#x6240;&#x6709;&#x5F62;&#x53C2; </p>
+<p>&#x6709;&#x5B9E;&#x53C2;&#xFF0C;&#x5C5E;&#x6027;&#x952E;&#x503C;&#x5BF9;&#x88AB;&#x521B;&#x5EFA;</p>
+<p>&#x6CA1;&#x6709;&#x5B9E;&#x53C2;&#xFF0C;&#x5C5E;&#x6027;&#x503C;&#x8BBE;&#x4E3A; undefined</p>
+<p>...args,&#x5F62;&#x53C2;args&#x6570;&#x7EC4;&#x7C7B;&#x578B;&#xFF0C;&#x5305;&#x542B;&#x6240;&#x6709;&#x5B9E;&#x53C2;</p>
+</li>
+<li><p>&#x51FD;&#x6570;&#x58F0;&#x660E;(&#x51FD;&#x6570;&#x5F0F;&#x58F0;&#x660E;,&#x975E;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x58F0;&#x660E;)</p>
+<p><code>c: reference to function c(){}</code> (&#x51FD;&#x6570;&#x5F0F;&#x58F0;&#x660E;)</p>
+<p>&#x5982;&#x679C;&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;<strong>&#x76F8;&#x540C;&#x540D;&#x79F0;</strong>&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x5219;<strong>&#x5B8C;&#x5168;&#x66FF;&#x6362;</strong>&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;</p>
+</li>
+<li><p>&#x53D8;&#x91CF;&#x58F0;&#x660E;</p>
+<p>&#x5C5E;&#x6027;&#x503C;&#x8BBE;&#x4E3A; undefined</p>
+<p>&#x5982;&#x679C;&#x53D8;&#x91CF;&#x540D;&#x79F0;&#x8DDF;&#x5DF2;&#x7ECF;&#x58F0;&#x660E;&#x7684;<strong>&#x5F62;&#x53C2;&#x6216;&#x51FD;&#x6570;</strong>&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x53D8;&#x91CF;&#x58F0;&#x660E;<strong>&#x4E0D;&#x4F1A;&#x5E72;&#x6270;</strong>&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x8FD9;&#x7C7B;&#x5C5E;&#x6027;</p>
+</li>
+</ul>
+</li>
+<li><p>&#x4EE3;&#x7801;&#x6267;&#x884C; </p>
+<p> &#x5728;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x9636;&#x6BB5;&#xFF0C;&#x4F1A;<strong>&#x987A;&#x5E8F;&#x6267;&#x884C;&#x4EE3;&#x7801;</strong>&#xFF0C;&#x6839;&#x636E;&#x4EE3;&#x7801;&#xFF0C;&#x4FEE;&#x6539;&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#x7684;&#x503C;</p>
+<p> <code>d: reference to FunctionExpression &quot;d&quot;</code>&#xFF08;&#x51FD;&#x6570;&#x8868;&#x8FBE;&#x5F0F;&#x58F0;&#x660E;&#xFF09;</p>
+</li>
+</ol>
+<blockquote>
+<p>&#x26A0;&#xFE0F;&#x4E0D;&#x7528;var&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x9690;&#x5F0F;&#x7684;&#x521B;&#x5EFA;&#x4E3A;&#x5168;&#x5C40;&#x53D8;&#x91CF;</p>
+</blockquote>
+<p>&#x601D;&#x8003;&#x9898;&#xFF1A;</p>
+<p>&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x5185;&#x90E8;&#x4F18;&#x5148;&#x7EA7;&#xFF0C;&#x8FDB;&#x5165;&#x9636;&#x6BB5;&#xFF08;&#x51FD;&#x6570; - &#x5F62;&#x53C2; - &#x53D8;&#x91CF;&#xFF09;,&#x6267;&#x884C;&#x9636;&#x6BB5;&#x6FC0;&#x6D3B;&#xFF08;&#x4FEE;&#x6539;&#xFF09;&#x90E8;&#x5206;&#xFF08;&#x53D8;&#x91CF; - &#x51FD;&#x6570; - &#x5F62;&#x53C2;&#xFF09;</p>
+<pre><code>function test (foo){
+
+  console.log(foo);//f
+
+  function foo(){
+      console.log(&quot;foo&quot;);
+  }
+
+  console.log(foo)//f
+
+  var foo = 1;
+
+  console.log(foo)//1
+
+}
+</code></pre><h2 id="&#x4F5C;&#x7528;&#x57DF;&#x94FE;">&#x4F5C;&#x7528;&#x57DF;&#x94FE;</h2>
+<p>&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x5728;&#x51FD;<strong>&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x65F6;&#x5019;</strong>&#x5C31;&#x51B3;&#x5B9A;&#x4E86;&#xFF0C;&#x4FDD;&#x5B58;&#x5230;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x5C5E;&#x6027;<code>[[scope]]</code></p>
+<p>&#x521B;&#x5EFA;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x5BF9;&#x8C61;</p>
+<ol>
+<li><strong>&#x590D;&#x5236;</strong> (&#x4E0D;&#x662F;&#x62F7;&#x8D1D;&#xFF0C;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#x6570;&#x636E;&#x90FD;&#x662F;key&#x5730;&#x5740;&#x503C;) &#x51FD;&#x6570;<code>[[scope]]</code>&#x5C5E;&#x6027;&#x521B;&#x5EFA;&#x4F5C;&#x7528;&#x57DF;&#x94FE;</li>
+<li>&#x521B;&#x5EFA;&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;AO</li>
+<li>&#x5C06;&#x6D3B;&#x52A8;&#x5BF9;&#x8C61;&#x538B;&#x5165;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x9876;&#x7AEF;</li>
+<li>&#x5F00;&#x59CB;&#x6267;&#x884C;&#x51FD;&#x6570;&#xFF0C;&#x968F;&#x7740;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x4FEE;&#x6539; AO &#x7684;&#x5C5E;&#x6027;&#x503C;</li>
+</ol>
+<h2 id="this">this</h2>
+<p>&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x51B3;&#x5B9A;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x8C01;&#x8C03;&#x7528;</p>
+<p><a href="this&#x6307;&#x5411;.html">&#x53C2;&#x89C1;</a></p>
+<h2 id="&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;">&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;</h2>
+<ul>
+<li>&#x5B58;&#x5728;&#x4E8E;<ul>
+<li>&#x51FD;&#x6570;&#x5185;&#x90E8;</li>
+<li>&#x5757;&#x4E2D;(&#x82B1;&#x62EC;&#x53F7;)</li>
+</ul>
+</li>
+<li>&#x5FC5;&#x5907;&#x6761;&#x4EF6;
+let/const &#x5757;&#x7EA7;&#x58F0;&#x660E;</li>
+<li><p>&#x5FAA;&#x73AF;&#x4E2D;&#x7684;&#x5757;&#x7EA7;&#x4F5C;&#x7528;&#x57DF;</p>
+<p>&#x89E3;&#x51B3;var&#x58F0;&#x660E;&#x6C61;&#x67D3;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x95EE;&#x9898;</p>
+<pre><code>var funcs = [];
+for (let i = 0; i &lt; 3; i++) {
+    // let i = i (&#x7406;&#x89E3;)
+    funcs[i] = function () {
+        console.log(i);
+    };
+}
+funcs[0](); // 0
+</code></pre><p>&#x7528;&#x95ED;&#x5305;&#x89E3;&#x51B3;</p>
+<pre><code>var funcs = [];
+for (var i = 0; i &lt; 3; i++) {
+    funcs[i] = (function(i){
+        return function() {
+            console.log(i);
+        }
+    }(i))
+}
+funcs[0](); // 0
+</code></pre><p>&#x7C7B;&#x4F3C;&#x9898;</p>
+<pre><code>for (var i = 0; i &lt; 3; i++) {
+    setTimeout(()=&gt;{
+        console.log(i)
+    },1000)
+}
+</code></pre><pre><code>for (let i = 0; i &lt; 3; i++) {
+    setTimeout(()=&gt;{
+        console.log(i)
+    },1000)
+}
+</code></pre><pre><code>for (var i = 0; i &lt; 3; i++) {
+    (function(i){
+        setTimeout(()=&gt;{
+            console.log(i)
+        },1000)
+    })(i)
+}
+</code></pre></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="webpack.html" class="navigation navigation-prev " aria-label="Previous page: webpack">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="原型链.html" class="navigation navigation-next " aria-label="Next page: 原型链">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"作用域","level":"3.14","depth":1,"next":{"title":"原型链","level":"3.15","depth":1,"path":"每周深入一点点/原型链.md","ref":"每周深入一点点/原型链.md","articles":[]},"previous":{"title":"webpack","level":"3.13","depth":1,"path":"每周深入一点点/webpack.md","ref":"每周深入一点点/webpack.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["chapter-fold","summary","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"summary":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"每周深入一点点/作用域.md","mtime":"2020-04-25T09:06:16.067Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-09T08:32:32.702Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

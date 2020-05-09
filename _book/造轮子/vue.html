@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Fish Chan">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue-demo</title>
+</head>
+
+<body>
+  <div id="app">{{name}}</div>
+
+  <script>
+    class Vue {
+      constructor(options) {
+        let data = this._data = options.data;
+
+        new Observer(data);    
+
+        const _complie = new Compile(options.el, this);
+
+        _complie.compileText();
+      }
+    }
+    class Observer {
+      constructor(data) {
+        this.defineReactive(data);
+      }
+
+      defineReactive(data) {
+        let dep = new Dep();
+        Object.keys(data).forEach(key => {
+          let val = data[key];
+          Object.defineProperty(data, key, {
+            get() {
+              //将watch放入订阅者数组
+              Dep.target && dep.addSubscribe(Dep.target);
+              return val;
+            },
+            set(newVal) {
+              val = newVal;
+              //启动发布者发布
+              dep.notify();
+            }
+          })
+        });
+      }
+    }
+    class Compile {
+      constructor(el, vue) {
+        this.$el = document.querySelector(el);
+        this.$vue = vue;
+      }
+
+      compileText() {
+        const reg = /\{\{(.*)\}\}/; // 用于匹配 {{name}} 的正则
+
+        const fragment = this.node2Fragment(this.$el); // 把操作 DOM 改成操作文档碎片
+        const node = fragment.childNodes[0];
+
+        if (reg.test(node.textContent)) {
+          let matchedName = RegExp.$1;
+          node.textContent = this.$vue._data[matchedName]; // 替换数据
+          this.$el.appendChild(node); // 编译好的文档碎片放进根节点
+
+          new Watcher(this.$vue, matchedName, function (value) {
+            node.textContent = value;
+          });
+        }
+      }
+
+      node2Fragment(node) {
+        const fragment = document.createDocumentFragment();
+        fragment.appendChild(node.firstChild);
+        return fragment;
+      }
+    }
+    class Watcher {
+      constructor(vue, exp, callback) {
+        this.vue = vue;
+        this.exp = exp;
+        this.callback = callback;
+        this.value = this.get();
+      }
+
+      get() {
+        Dep.target = this;
+        let value = this.vue._data[this.exp];//Observer get()触发
+        Dep.target = null;
+        return value;
+      }
+
+      update() {
+        this.value = this.get();
+        this.callback.call(this.vue, this.value); // 将新的数据传回，用于更新视图
+      }
+    }
+    class Dep {
+      constructor(vue) {
+        this.subs = []; // 存放订阅者
+      }
+
+      addSubscribe(subscribe) {
+        this.subs.push(subscribe);
+      }
+
+      notify() {
+        let length = this.subs.length;
+        while (length--) {
+          this.subs[length].update();
+        }
+      }
+    }
+  </script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+
+      data: {
+        name: 'Fish Chan'
+      }
+    });
+  </script>
+</body>
+
+</html>
