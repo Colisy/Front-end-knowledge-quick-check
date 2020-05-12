@@ -1,6 +1,7 @@
 # css
 #### html语义化
 >语义化是指根据内容，选择合适的标签，便于**开发者阅读**和写出更优雅的代码的同时，让**浏览器的爬虫**和机器很好的解析,利于**SEO**。
+
 #### html5
 ###### 根元素
 Element | Description 
@@ -87,38 +88,38 @@ svg|矢量图
 #### 布局
 - 上中下
     - position
-  ```
-  <style type="text/css">
-    .layout.absolute div{
-      position: absolute;
-      width: 100%;
-    }
-    .layout.absolute .top{
-      top: 0;
-      height: 100px;
-      background: red;
-    }
-    .layout.absolute .bottom{
-      bottom: 0;
-      height: 100px;
-      background: blue;
-    }
-    .layout.absolute .center{
-      top: 100px;
-      bottom: 100px;
-      background: yellow;
-      overflow: auto;
-    }
+      ```
+      <style type="text/css">
+        .layout.absolute div{
+          position: absolute;
+          width: 100%;
+        }
+        .layout.absolute .top{
+          top: 0;
+          height: 100px;
+          background: red;
+        }
+        .layout.absolute .bottom{
+          bottom: 0;
+          height: 100px;
+          background: blue;
+        }
+        .layout.absolute .center{
+          top: 100px;
+          bottom: 100px;
+          background: yellow;
+          overflow: auto;
+        }
 
-  </style>
-  <article class="layout absolute">
-    <div class="top"></div>
-    <div class="center">
-      <h1>absolute中间自适应元素</h1>
-    </div>
-    <div class="bottom"></div>
-  </article> 
-  ```
+      </style>
+      <article class="layout absolute">
+        <div class="top"></div>
+        <div class="center">
+          <h1>absolute中间自适应元素</h1>
+        </div>
+        <div class="bottom"></div>
+      </article> 
+      ```
     - flex
   ```
   <style type="text/css">
