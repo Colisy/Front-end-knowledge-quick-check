@@ -1,6 +1,36 @@
 # es6数组
 ## 扩展运算符
 1. 函数参数
+
+    ```
+    function func(...arg) {
+
+        console.log(arg) // [1, 2, 3]
+    }
+
+    func(1, 2, 3);    
+    ```
+    ```
+    function func(...arguments) {
+
+        //进入执行上下文时，重写初始化创建的arguments
+        
+        console.log(arguments); // [1, 2, 3]
+    }
+
+    func(1, 2, 3);    
+    ```
+    ```
+    function func(...arg) {
+
+        //进入执行上下文时，重写初始化创建的arguments
+        
+        console.log(arguments); // [1, 2, 3] 类数组
+        console.log(arg) // [1, 2, 3]
+    }
+
+    func(1, 2, 3);    
+    ```
 2. 替代函数的 apply 方法
    ```
    // ES5 的写法
@@ -218,3 +248,28 @@
 
 由于空位的处理规则非常不统一，所以建议避免出现空位。
 ## sort
+1. 参数
+
+  - 无参数 - unicode
+
+    ```
+    const array1 = [1, 30, 4, 21, 100000];
+    array1.sort();
+    console.log(array1);
+    // [1, 100000, 21, 30, 4]
+    ```
+  - 比较函数
+    ```
+    var numbers = [4, 2, 5, 1, 3]; 
+    numbers.sort((a, b) => a - b); 
+    console.log(numbers);
+    //升序
+    ```
+    内部会调用比较函数排序，根据比较函数返回值确定排序。
+2. v8引擎
+
+    当数组长度小于等于10的时候，采用插入排序，大于10的时候，采用快排。
+
+    具体实现？？？
+    为什么这样安排？？？
+    待续。。。
