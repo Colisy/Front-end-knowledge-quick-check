@@ -97,11 +97,151 @@
     obj[key2].name // ""
     ```
 
-4. 属性的可枚举性和遍历
+4. 属性的可枚举性
 
    1. 可枚举性
 
       >对象的每个属性都有一个描述对象（Descriptor），用来控制该属性的行为。Object.getOwnPropertyDescriptor方法可以获取该属性的描述对象。
 
-    
-   2. 遍历
+      ```javascript
+      let obj = { foo: 123 };
+      Object.getOwnPropertyDescriptor(obj, 'foo')
+      //  {
+      //    value: 123,
+      //    writable: true,
+      //    enumerable: true,
+      //    configurable: true
+      //  }
+      ```
+
+   2. 忽略enumerable为false的属性
+
+      1. for...in循环：只遍历对象**自身的和继承**的可枚举的属性。
+      2. Object.keys()：返回对象**自身**的所有可枚举的属性的键名。
+      3. JSON.stringify()：只串行化对象**自身**的可枚举的属性。
+      4. Object.assign()： 忽略enumerable为false的属性，只拷贝对象**自身**的可枚举的属性。
+
+    3. 常见的enumerable为false的属性
+
+        对象原型的toString方法，以及数组的length属性
+
+        ES6 规定，所有 Class 的原型的方法都是不可枚举的。
+
+        ```javascript
+          Object.getOwnPropertyDescriptor(Object.prototype, 'toString').enumerable
+          // false
+
+          Object.getOwnPropertyDescriptor([], 'length').enumerable
+          // false
+
+          Object.getOwnPropertyDescriptor(class {foo() {}}.prototype, 'foo').enumerable
+          // false
+        ```
+
+5. 属性的遍历
+
+    1. for...in
+
+        遍历对象**自身的和继承**的**可枚举**属性（不含 Symbol 属性）
+
+    2. Object.keys(obj)
+
+        返回一个数组，包括对象**自身**的（不含继承的）所有**可枚举**属性（不含 Symbol 属性）的键名
+
+    3. Object.getOwnPropertyNames(obj)
+
+        返回一个数组，包含对象**自身**的所有属性（不含 Symbol 属性，但是**包括不可枚举属性**）的键名
+
+    4. Object.getOwnPropertySymbols(obj)
+
+        返回一个数组，包含对象**自身**的所有 **Symbol 属性**的键名。
+
+    5. Reflect.ownKeys(obj)
+
+        返回一个数组，包含对象**自身**的（不含继承的）**所有键名**，不管键名是 Symbol 或字符串，也不管是否可枚举。
+
+6. super 关键字
+
+    指向当前对象的原型对象。
+
+    ```javascript
+      const proto = {
+        foo: 'hello'
+      };
+
+      const obj = {
+        foo: 'world',
+        find() {
+          return super.foo;
+        }
+      };
+
+      Object.setPrototypeOf(obj, proto);
+      obj.find() // "hello"    
+    ```
+
+    只能用在对象的方法之中
+
+    ```javascript
+      // 报错
+      const obj = {
+        foo: super.foo
+      }
+
+      // 报错
+      const obj = {
+        foo: () => super.foo
+      }
+
+      // 报错
+      const obj = {
+        foo: function () {
+          return super.foo
+        }
+      }
+      //第二种和第三种写法是super用在一个函数里面，然后赋值给foo属性。
+    ```
+
+    super.foo等同于Object.getPrototypeOf(this).foo.call(this)。
+
+    ```javascript
+    const proto = {
+      x: 'hello',
+      foo() {
+        console.log(this.x);
+      },
+    };
+
+    const obj = {
+      x: 'world',
+      foo() {
+        super.foo();
+      }
+    }
+
+    Object.setPrototypeOf(obj, proto);
+
+    obj.foo() // "world"
+    ```
+
+7. es9 将扩展运算符（...）引入了对象
+
+    ```javascript
+    let z = { a: 3, b: 4 };
+    let n = { ...z };
+    n // { a: 3, b: 4 }
+    ```
+
+    扩展运算符后面不是对象，则会自动将其转为对象。
+
+    ```javascript
+    // 等同于 {...Object(1)}
+    {...1} // {}
+    ```
+
+    ```javascript
+    {...'hello'}
+    // {0: "h", 1: "e", 2: "l", 3: "l", 4: "o"}
+    ```
+
+8. 对象的api

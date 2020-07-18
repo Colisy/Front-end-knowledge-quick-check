@@ -277,7 +277,27 @@
 
 ## 数组的空位
 
-跳过空位、跳过但保留位置、处理成undefined
+ES5 对空位的处理，已经很不一致了，大多数情况下会**忽略空位**。
+
+ES6 则是明确将空位转为**undefined**。
+
+```javascript
+let arr = [, ,];
+for (let i of arr) {
+  console.log(i);
+}
+//undefined undefined
+
+let arr = [, ,];
+for (let i =0;i <= arr.length;i++) {
+  console.log(arr[i]);
+}
+//undefined undefined
+```
+
+```javascript
+new Array(3).fill('a') // ["a","a","a"]
+```
 
 由于空位的处理规则非常不统一，所以建议避免出现空位。
 
@@ -304,10 +324,46 @@
     ```
 
     内部会调用比较函数排序，根据比较函数返回值确定排序。
+    
+    js引擎的排序算法涉及到两数比较，这时候用比较函数，决定了升序降序。
+
 2. v8引擎
 
     当数组长度小于等于10的时候，采用插入排序，大于10的时候，采用快排。
 
-    具体实现？？？
-    为什么这样安排？？？
-    待续。。。
+    插入排序
+
+    ```javascript
+    function InsertionSort(a, from, to) {
+        for (var i = from + 1; i < to; i++) {
+        var element = a[i];
+        for (var j = i - 1; j >= from; j--) {
+            var tmp = a[j];
+            var order = comparefn(tmp, element);//比较函数
+            if (order > 0) {
+              a[j + 1] = tmp;
+            } else {
+              break;
+            }
+        }
+          a[j + 1] = element;
+        }
+    };
+    ```
+    插入排序时间复杂度：
+
+    最好时间复杂度: O(n);
+    最坏时间复杂度: O(n^2);
+    平均时间复杂度: O(n^2);
+
+    快速排序时间复杂度：
+
+    最好时间复杂度：O(nlog(n))。
+    最坏时间复杂度： O(n^2)。
+    平均时间复杂度： O(nlog(n)) 
+
+    最大程度保证快排的复杂度**趋近于平均复杂度**，即nlogn.
+
+
+    1. 对于大于10小于等于1000的数据量，取这组数据中间位置的值
+    2. 对于大于1000的数据，根据一定步长从待排序的数组里面获取一组临时数据，对临时数据排序，再获得临时数据中最中间位置的值。步长的计算跟数组的长度有关系，其计算方法如下：步长 = 200 + 数组长度&15;
