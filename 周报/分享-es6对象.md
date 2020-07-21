@@ -146,7 +146,7 @@
 
     2. Object.keys(obj)
 
-        返回一个数组，包括对象**自身**的（不含继承的）所有**可枚举**属性（不含 Symbol 属性）的键名
+        返回一个数组，包括对象**自身**的（不含继承的）所有**可枚举**属性（不含 Symbol 属性）的键名（Symbol类型是不可枚举的）
 
     3. Object.getOwnPropertyNames(obj)
 
@@ -244,4 +244,135 @@
     // {0: "h", 1: "e", 2: "l", 3: "l", 4: "o"}
     ```
 
-8. 对象的api
+## 对象的api
+
+   1. Object.is()
+
+      比较两个值是否相等，与严格比较运算符（===）的行为基本一致，不同之处只有两个：一是+0不等于-0，二是NaN等于自身。
+
+      ES5 比较两个值是否相等，只有两个运算符：相等运算符（==）和严格相等运算符（===）
+
+      == ：自动转换数据类型
+
+      === ： NaN不等于自身，以及+0等于-0
+
+   2. Object.assign(target, source1, source2)
+
+      用于对象的合并，将源对象（source）的所有**可枚举属性**（不拷贝继承属性），复制到目标对象（target）。拷贝属性名为 Symbol 值的属性。
+
+      注意点：
+      1. 浅拷贝
+      2. 同名属性的替换
+
+          ```javascript
+          const target = { a: { b: 'c', d: 'e' } }
+          const source = { a: { b: 'hello' } }
+          Object.assign(target, source)
+          // { a: { b: 'hello' } }
+          ```
+
+      用途：
+      1. 克隆对象
+
+        ```javascript
+         Object.assign({}, origin)
+        ```
+
+      2. 合并多个对象
+
+        ```javascript
+        Object.assign(target, ...sources)
+        ```
+
+      3. 为属性指定默认值
+
+        ```javascript
+        const DEFAULTS = {
+          logLevel: 0,
+          outputFormat: 'html'
+        };
+
+        function processContent(options) {
+          options = Object.assign({}, DEFAULTS, options);
+          console.log(options);
+          // ...
+        }
+        ```
+
+   3. Object.getOwnPropertyDescriptors()
+
+      ES5 的Object.getOwnPropertyDescriptor()方法会返回某个对象属性的描述对象（descriptor）,ES2017 引入了Object.getOwnPropertyDescriptors()方法，返回指定对象所有自身属性（非继承属性）的描述对象。
+
+      ```javascript
+      const obj = {
+        foo: 123,
+        get bar() { return 'abc' }
+      };
+
+      Object.getOwnPropertyDescriptors(obj)
+      // { foo:
+      //    { value: 123,
+      //      writable: true,
+      //      enumerable: true,
+      //      configurable: true },
+      //   bar:
+      //    { get: [Function: get bar],
+      //      set: undefined,
+      //      enumerable: true,
+      //      configurable: true } }
+      ```
+
+      该方法的引入目的，主要是为了解决Object.assign()无法正确拷贝get属性和set属性的问题。
+
+      ```javascript
+      const source = {
+        set foo(value) {
+          console.log(value);
+        }
+      };
+
+      const target2 = {};
+      Object.defineProperties(target2, Object.getOwnPropertyDescriptors(source));
+      Object.getOwnPropertyDescriptor(target2, 'foo')
+      // { get: undefined,
+      //   set: [Function: set foo],
+      //   enumerable: true,
+      //   configurable: true }
+      ```
+
+   4. 原型对象的操作方法
+
+      __proto__属性，标准明确规定，只有浏览器必须部署这个属性，其他运行环境不一定需要部署
+
+      Object.setPrototypeOf(object, prototype)（写操作）、Object.getPrototypeOf(obj)（读操作）、Object.create(prototype,object)（生成操作）
+
+   5. Object.keys()，Object.values()，Object.entries()
+
+      1. Object.keys() :返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键名
+
+      2. Object.values() :键值
+
+      3. Object.entries() :键值对数组
+
+      ```javascript
+      let {keys, values, entries} = Object;
+      let obj = { a: 1, b: 2, c: 3 };
+
+      for (let key of keys(obj)) {
+        console.log(key); // 'a', 'b', 'c'
+      }
+
+      for (let value of values(obj)) {
+        console.log(value); // 1, 2, 3
+      }
+
+      for (let [key, value] of entries(obj)) {
+        console.log([key, value]); // ['a', 1], ['b', 2], ['c', 3]
+      }
+      ```
+
+      ```javascript
+      const obj = { foo: 'bar', baz: 42 };
+      Object.entries(obj)
+      // [ ["foo", "bar"], ["baz", 42] ]
+      ```
